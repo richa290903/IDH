@@ -1,0 +1,141 @@
+{% include "header.html" %}
+{% load static %}
+<section>
+ 
+  <div class="home-page-section">
+    
+  <!-- IMAGE SLIDER -->
+  <div class="relative w-full h-[550px] overflow-hidden">
+    {% for img in images %}
+    <img src="{{ img }}" alt="Slide {{ forloop.counter }}"
+         class="slide w-full h-[550px] object-cover hidden">
+    {% endfor %}
+
+    <!-- Overlay Text -->
+    <div class="absolute top-0 left-0 w-full h-full bg-black/50 flex flex-col justify-center items-center text-white">
+      <h1 class="text-4xl font-bold">Build Your Dream Home</h1>
+      <a href="/login" class="mt-4 bg-slate-400 py-2 px-8 rounded-lg font-semibold text-lg">Get Started</a>
+    </div>
+
+    <!-- Prev Button -->
+    <button onclick="prev()" class="absolute top-1/2 left-3 transform -translate-y-1/2 bg-white rounded-full p-2 shadow">
+      <svg class="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+
+    <!-- Next Button -->
+    <button onclick="next()" class="absolute top-1/2 right-3 transform -translate-y-1/2 bg-white rounded-full p-2 shadow">
+      <svg class="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+  </div>
+
+ <script>
+  // STEP 1: Get all images
+  let slides = document.querySelectorAll(".slide");
+
+  // STEP 2: Start with the first image
+  let index = 0;
+
+  // STEP 3: Hide all images
+  function hideAll() {
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+  }
+  
+  // STEP 4: Show the current image
+  function showCurrent() {
+    hideAll();            // hide all images
+    slides[index].style.display = "block";  // show only one
+  }
+
+  // STEP 5: Next button
+  function next() {
+    index++;                // move to next image
+    if (index >= slides.length) {
+      index = 0;            // if end → start again
+    }
+    showCurrent();
+  }
+
+  // STEP 6: Previous button
+  function prev() {
+    index--;                // move to previous
+    if (index < 0) {
+      index = slides.length - 1; // if before start → go to last
+    }
+    showCurrent();
+  }
+
+  // STEP 7: Auto play every 5 seconds
+  setInterval(next, 5000);
+
+  // STEP 8: Show first image when page loads
+  window.onload = showCurrent;
+</script>
+
+
+    <!-- About Us  -->
+    <div class="about-section pt-8">
+      <div class="">
+        <div class="mb-6 max-w-4xl text-center sm:text-center md:mx-auto md:mb-12">
+            <h2 class="font-heading mb-4 font-bold tracking-tight text-gray-900 text-2xl sm:text-5xl">
+                ABOUT US
+            </h2>
+            <p class="mx-auto mt-4 max-w-3xl text-md text-gray-600">
+              At Intract Design Hub, our team is comprised of talented designers and professionals who are dedicated to bringing creativity and innovation to every project. With a shared passion for design and a commitment to excellence, we work tirelessly to ensure that our clients' visions are brought to life in a way that exceeds their expectations.
+            </p>
+            <div class=" grid grid-cols-3 gap-4 pt-12">
+              <div class="bg-slate-200 px-6 py-6">
+                <div class="about-img flex justify-center">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpohbzlvf_TnIW6Ez-X8oRJiSBFSQq4fBU_A&s" alt="">
+                </div>
+                <div class="about-desc text-left w-full pt-4 flex flex-col">
+                  <span class="text-[#000] font-semibold text-[18px]">Richa Bhatt</span>
+                  <span class="text-[#000] opacity-50 font-semibold text-[12px]">Founder</span>
+                  <span class="text-[#000] opacity-75 font-medium text-[14px] py-2">
+                    Richa  founded Interact Design Hub with a vision to revolutionize the way people experience interior design. With a background in programming, she is dedicated to making design accessible to everyone.
+                  </span>
+                  <span class="text-[#000] opacity-50 font-semibold text-[12px]">richabhatt299&#64;gmail.com</span>
+                </div>
+              </div>
+              <div class="bg-slate-200 px-6 py-6 ">
+                <div class="about-desc text-left w-full pt-4 flex flex-col">
+                  <span class="text-[#000] font-semibold text-[18px]">Ruchi Bhatt</span>
+                  <span class="text-[#000] opacity-50 font-semibold text-[12px]">Co-Founder</span>
+                  <span class="text-[#000] opacity-75 font-medium py-2 text-[14px]">
+                    As the Design Director of Interact Design Hub, ruchi brings classmate. With a keen eye for detail and a passion for [Co-Founder's Passion], she oversees the design process to ensure that every project meets the highest standards of creativity and innovation.
+                  </span>
+                  <span class="text-[#000] opacity-50 font-semibold text-[12px]">ruchibhatt221&#64;gmail.com</span>
+                </div>
+                 <div class="about-img flex justify-center">
+                  <img src="https://img.freepik.com/free-vector/woman-with-long-brown-hair-pink-shirt_90220-2940.jpg" alt="">
+                </div>
+              </div>
+              <div class="bg-slate-200 px-6 py-6">
+                <div class="about-img flex justify-center">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx8WawilHdfgrZtRwCo-jeYGQFIwBBL7_tCHS1gT8AGCEjrPWGPtLizInASVUX_M3tocE&usqp=CAU" alt="">
+                </div>
+                <div class="about-desc text-left w-full pt-4 flex flex-col">
+                  <span class="text-[#000] font-semibold text-[18px]">Pooja Joshi</span>
+                  <span class="text-[#000] opacity-50 font-semibold text-[12px]">Manager</span>
+                  <span class="text-[#000] opacity-75 font-medium py-2 text-[14px]">
+                    plays a crucial role in managing the day-to-day operations of Interact Design Hub. With a background in BBA, pooja is committed to providing exceptional service to our clients and ensuring that every project runs smoothly from start to finish.
+                  </span>
+                  <span class="text-[#000] opacity-50 font-semibold text-[12px]">pajoshi510&#64;gmail.com</span>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+  </form>
+</section>
+{% include "footer.html" %}  
+
+
+

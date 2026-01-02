@@ -1,0 +1,11 @@
+
+.active {
+      color:black; /* Set your desired active color */
+    }
+
+.dropdown-cotent{
+  display: none;
+}
+.dropdown-content.show1{
+  display: block;
+}

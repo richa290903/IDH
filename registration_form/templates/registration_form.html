@@ -1,0 +1,96 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section class="bg-slate-300 py-14 ">
+      <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto  lg:py-0">
+          <!-- <a href="/login" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+              <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo">
+              Intract Design Hub
+          </a> -->
+
+          <div class="w-full bg-white rounded-lg shadow-black shadow-xl dark:border sm:max-w-md dark:bg-white dark:border-gray-700">
+
+              <div class="py-6 space-y-6 md:space-y-0 sm:px-8">
+                <h1 class="text-3xl text-center py-8 font-bold ">Registration</h1>
+                  <form class="space-y-4 md:space-y-6" autocomplete="off" method="POST" action="../register/" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <p style="color:red">Note :<i class="fa fa-asterisk" style="font-size:10px;color:red"></i> is Required Fields.</p>
+                        <label  class="block mb-2 text-lg font-normal">Select User Type<i class="fa fa-asterisk" style="font-size:10px;color:red"></i></label>
+                      <select name="user_type" class="bg-white w-full block border border-gray-300 text-black rounded-lg dark:placeholder-gray-400 p-2.5" required>
+                          <option value="" disabled selected>Select User Type</option>
+                          <option value="user">User</option>
+                          <option value="interior_designer">Interior Designer</option>
+                      </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label  class="block mb-2 text-lg font-normal">First Name<i class="fa fa-asterisk" style="font-size:10px;color:red"></i></label>
+                      <input type="text" name="first_name" class="bg-white w-full block border border-gray-300 text-black rounded-lg  dark:placeholder-gray-400 p-2.5" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label class="block mb-2 text-lg font-normal">Last Name</label>
+                      <input type="text"  name="last_name" class="bg-white w-full block border border-gray-300 text-black rounded-lg  dark:placeholder-gray-400 p-2.5" placeholder="Last Name" >
+                    </div>
+                    <div class="form-group">
+                      <label  class="block mb-2 text-lg font-normal">Photo</label>
+                      <input  type="file" name="photo" class="bg-white w-full block border border-gray-300 text-black rounded-lg  dark:placeholder-gray-400 p-2.5"  >
+                    </div>
+                      <div class="form-group">
+                      <label  class="block mb-2 text-lg font-normal">User Name<i class="fa fa-asterisk" style="font-size:10px;color:red"></i></label>
+                      <input type="text" name="user_name" class="bg-white w-full block border border-gray-300 text-black rounded-lg  dark:placeholder-gray-400 p-2.5" placeholder="First Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label class="block mb-2 text-lg font-normal">Your Email<i class="fa fa-asterisk" style="font-size:10px;color:red"></i></label>
+                      <input type="email"  name="email" class="bg-white w-full block border border-gray-300 text-black rounded-lg  dark:placeholder-gray-400 p-2.5" placeholder="name@company.com" required>
+                    </div>
+                    <div class="form-group">
+                      <label class="block mb-2 text-lg font-normal">Password<i class="fa fa-asterisk" style="font-size:10px;color:red"></i></label>
+                      <input type="password"  name="password" placeholder="••••••••" class="bg-white w-full block border border-gray-300 text-black rounded-lg  dark:placeholder-gray-400 p-2.5" required>
+                   </div>
+                    <div class="form-group">
+                      <label  class="block mb-2 text-lg font-normal">Mobile no<i class="fa fa-asterisk" style="font-size:10px;color:red"></i></label>
+                      <input type="text" name="mobile_no" class="bg-white w-full block border border-gray-300 text-black rounded-lg  dark:placeholder-gray-400 p-2.5" placeholder="1234567891" required>
+                    </div>
+                    <div class="form-group">
+                      <label  class="block mb-2 text-lg font-normal">Company Name</label>
+                      <input  type="text" name="company_name" class="bg-white w-full block border border-gray-300 text-black rounded-lg  dark:placeholder-gray-400 p-2.5" placeholder="company name" >
+                    </div>
+                    <div class="form-group">
+                      <label  class="block mb-2 text-lg font-normal">Company Address</label>
+                      <input  type="text" name="company_address" class="bg-white w-full block border border-gray-300 text-black rounded-lg  dark:placeholder-gray-400 p-2.5" placeholder="Company Address">
+                    </div>
+                    <div class="form-group">
+                      <label  class="block mb-2 text-lg font-normal">About Company</label>
+                      <input  type="text" name="about_company" class="bg-white w-full block border border-gray-300 text-black rounded-lg  dark:placeholder-gray-400 p-2.5" placeholder="" >
+                    </div>
+                    <div class="form-group">
+                      <label  class="block mb-2 text-lg font-normal">Website Link</label>
+                      <input type="text" name="website_link" class="bg-white w-full block border border-gray-300 text-black rounded-lg  dark:placeholder-gray-400 p-2.5" placeholder="Website Link">
+                    </div>
+
+                    <div class="flex items-start form-group">
+                      <div class="flex items-center h-5">
+                        <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-[#016EEB] dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-[#016EEB] dark:ring-offset-gray-800" required="">
+                      </div>
+                      <div class="ml-3 text-sm ">
+                        <label  class="font-normal text-black">I accept the <a class="font-medium text-[#016EEB] hover:underline dark:text-[#016EEB]" href="#">Terms and Conditions</a></label>
+                      </div>
+                      </div>
+                      <button  class="w-full text-white bg-[#016EEB] hover:bg-[#016EEB] focus:ring-4 focus:outline-none focus:ring-[#016EEB] font-semibold rounded-lg text-md px-5 py-2.5 text-center dark:bg-[#016EEB] dark:hover:bg-[#016EEB] dark:focus:ring-[#016EEB]" >Create an account</button>
+                      <p class="text-sm font-normal text-black">
+                          Already have an account? <a href="/login" class="font-medium text-[#016EEB] hover:underline dark:text-[#016EEB]">Login here</a>
+                      </p>
+                  </form>
+              </div>
+          </div>
+      </div>
+    </section>
+ {% if messages %}
+        {% for message in messages %}
+        <script>
+            alert("{{ message }}");
+        </script>
+        {% endfor %}
+    {% endif %}
+
+

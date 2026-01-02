@@ -1,0 +1,31 @@
+.pb-full {
+      padding-bottom: 100%;
+    }
+    
+    .bioclass{
+      color: #8E8E8E;
+    }
+    
+    /* hide search icon on search focus */
+    .search-bar:focus + .fa-search{
+      display: none;
+    }
+    
+    @media screen and (min-width: 768px) {
+      .post:hover .overlay {
+        display: block;
+      }
+    }
+    button {
+      margin-right: 8px;
+    }
+    .example-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+    }
+    
+    .example-full-width {
+      width: 100%;
+    }
+    
